@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ./partials/head %>
+</head>
+
+<body>
+  <% include ./partials/navbar %>
+    <div class="container">
+      <h2><%= title %></h2>
+      <p>Please register using the form below</p>
+      <form action="/action_page.php" method="post" enctype="multipart/form-data" class="form form__registration">
+        <span class="form__registration--label">
+          <label for="username"><span class="form__registration--before"><i class="fa fa-user-circle" aria-hidden="true"></i></span><span class="form__registration--label--content">Username </span></label><br/>
+        <input type="text" name="username" id="username" value="" class=" form__registration--input">
+        </span>
+
+        <br>
+        <span class="form__registration--label">
+              <label for="password">
+                <span class="form__registration--before"><i class="fa fa-user-secret" aria-hidden="true"></i></span>
+        <span class="form__registration--label--content">Password </span></label><br/>
+        <input type="text" name="password" id="password" value="" class=" form__registration--input">
+        </span>
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+    </div>
+<% include ./partials/footer %>
+</body>
+
+</html>

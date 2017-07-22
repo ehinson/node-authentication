@@ -1,0 +1,20 @@
+<script>
+  (function() {
+    document.querySelectorAll(".form__registration--input").forEach(elem => {
+
+      elem.addEventListener( 'focus', onInputFocus );
+			elem.addEventListener( 'blur', onInputBlur );
+
+    });
+    function onInputFocus( e ) {
+      let parentNode = e.target.parentNode
+      parentNode.classList.add("input--filled")
+				}
+		function onInputBlur( e ) {
+					if( e.target.value.trim() === '' ) {
+            let parentNode = e.target.parentNode
+            parentNode.classList.remove("input--filled")
+					}
+				}
+  })();
+</script>
