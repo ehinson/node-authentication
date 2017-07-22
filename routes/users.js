@@ -1,13 +1,11 @@
 var express = require('express');
 
 const multer = require('multer');
-
+var router = express.Router();
 // Handle File uploads
 var upload = multer({ dest: 'uploads/' });
 
 var User = require('../models/user');
-
-var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -15,7 +13,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Register', errors: [] });
+  res.render('register', { title: 'Register', errors: '' });
 });
 
 router.post('/register', upload.single('image--upload'), function(req, res, next) {
@@ -32,17 +30,17 @@ router.post('/register', upload.single('image--upload'), function(req, res, next
     var avatar = 'default-avatar.jpg';
   }
 
-  req.assert('name', 'Name field is required').notEmpty();
-  req.assert('email', 'Valid email is required').notEmpty();
-  req.assert('email', 'Valid email is required').isEmail();
-  req.assert('password', '6 to 20 characters required in password').len(6, 20);
-  req.assert('username', 'Username field is required').notEmpty();
-  req.assert('password', 'Password field is required').notEmpty();
-  req.assert('password2', 'Passwords must match').equals(req.body.password);
+  req.checkBody('name', 'Name field is required').notEmpty();
+  req.checkBody('email', 'Valid email is required').notEmpty();
+  req.checkBody('email', 'Valid email is required').isEmail();
+  req.checkBody('password', '6 to 20 characters required in password').len(6, 20);
+  req.checkBody('username', 'Username field is required').notEmpty();
+  req.checkBody('password', 'Password field is required').notEmpty();
+  req.checkBody('password2', 'Passwords must match').equals(req.body.password);
 
   req.getValidationResult().then(result => {
-    if (result) {
-      res.render('register', { title: 'Register', messages: '', errors: result.array() });
+    if (!result.isEmpty()) {
+      res.render('register', { title: 'Register', errors: result.array() });
     } else {
       var newUser = new User({
         username: username,
@@ -53,12 +51,12 @@ router.post('/register', upload.single('image--upload'), function(req, res, next
       });
       User.createUser(newUser, function(err, user) {
         if (err) {
-          throw err;
+          console.log(err);
+        } else {
+          console.log(user);
         }
-        console.log(user);
       });
-      req.flash('success', 'You are now registered and can log in');
-      res.location('/');
+
       res.redirect('/');
     }
   });

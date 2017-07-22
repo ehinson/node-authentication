@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/node-auth');
+mongoose.connect('mongodb://localhost/node-auth', {
+  useMongoClient: true
+  /* other options */
+});
 
 var db = mongoose.connection;
 
