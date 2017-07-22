@@ -71,10 +71,6 @@ span.gray,
   float: left;
 }
 
-.navigation__links li:hover {
-  background-color: #111;
-}
-
 .navigation__links li a {
   display: block;
   padding: 8px;
@@ -84,8 +80,9 @@ span.gray,
   font-weight: 300;
 }
 
-.navigation__links li a:hover {
-  background-color: #008c9e;
+.navigation__links li a:hover,
+.active {
+  background-color: #008c9e !important;
   color: white;
   transition: all 0.3s;
 }
@@ -216,4 +213,10 @@ select:-webkit-autofill {
   float: right;
   max-width: 50%;
   padding: 12px 5px;
+}
+.errors {
+  color: red;
+  text-align: left;
+  max-width: 400px;
+  margin: auto;
 }

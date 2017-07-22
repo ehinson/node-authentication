@@ -7,24 +7,34 @@
 
 <body>
   <% include ./partials/navbar %>
+
     <div class="container">
+      <ul class="errors">
+        <% if (  errors !== undefined || errors.length > 0){ %>
+  <% for (const error of errors){ %>
+  <li class="form__error-message"><%= error.msg %> </li>
+  <% } %>
+  <% }  %>
+</ul>
       <h2 class="registration__title"><%= title %></h2>
       <p class="registration__text">Please register using the form below</p>
+
+
       <form action="/users/register" method="post" enctype="multipart/form-data" class="form form__registration">
         <span class="form__registration--label">
-          <label for="name"><span class="form__registration--before"><i class="fa fa-user-circle" aria-hidden="true"></i></span><span class="form__registration--label--content">Name </span></label><br/>
+          <label for="name"><span class="form__registration--before"><i class="fa fa-user-circle" aria-hidden="true"></i></span><span class="form__registration--label--content">Name (required) </span></label><br/>
         <input type="text" name="name" id="name" value="" class=" form__registration--input">
         </span>
 
         <br>
         <span class="form__registration--label">
-          <label for="email"><span class="form__registration--before"><i class="fa fa-user-circle" aria-hidden="true"></i></span><span class="form__registration--label--content">Email </span></label><br/>
+          <label for="email"><span class="form__registration--before"><i class="fa fa-user-circle" aria-hidden="true"></i></span><span class="form__registration--label--content">Email (required) </span></label><br/>
         <input type="text" name="email" id="email" value="" class=" form__registration--input">
         </span>
 
         <br>
         <span class="form__registration--label">
-          <label for="username"><span class="form__registration--before"><i class="fa fa-user-circle" aria-hidden="true"></i></span><span class="form__registration--label--content">Username </span></label><br/>
+          <label for="username"><span class="form__registration--before"><i class="fa fa-user-circle" aria-hidden="true"></i></span><span class="form__registration--label--content">Username (required) </span></label><br/>
         <input type="text" name="username" id="username" value="" class=" form__registration--input">
         </span>
 
@@ -32,21 +42,21 @@
         <span class="form__registration--label">
               <label for="password">
                 <span class="form__registration--before"><i class="fa fa-user-secret" aria-hidden="true"></i></span>
-        <span class="form__registration--label--content">Password </span></label><br/>
-        <input type="text" name="password" id="password" value="" class=" form__registration--input">
+        <span class="form__registration--label--content">Password (required) </span></label><br/>
+        <input type="password" name="password" id="password" value="" class=" form__registration--input">
         </span>
         <span class="form__registration--label">
               <label for="password2">
                 <span class="form__registration--before"><i class="fa fa-user-secret" aria-hidden="true"></i></span>
-        <span class="form__registration--label--content">Confirm Password </span></label><br/>
-        <input type="text" name="password2" id="password2" value="" class=" form__registration--input">
+        <span class="form__registration--label--content">Confirm Password (required)</span></label><br/>
+        <input type="password" name="password2" id="password2" value="" class=" form__registration--input">
         </span>
         <label for="password2">
 
   <span class="form__registration--file--content">Upload Profile Image </span></label>
-        <input type="file" name="icon--upload" value="" class=" registration__file--upload">
+        <input type="file" name="image--upload" value="" class=" registration__file--upload">
         <br><br>
-        <input type="submit" value="Submit" class="button registration__submit">
+        <input type="submit" value="Register" class="button registration__submit">
       </form>
 
     </div>

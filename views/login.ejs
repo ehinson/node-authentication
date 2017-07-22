@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ./partials/head %>
+</head>
+
+<body>
+  <% include ./partials/navbar %>
+  <%- messages() %>
+    <div class="container">
+      <h2 class="registration__title"><%= title %></h2>
+      <p class="registration__text">Please login  below</p>
+      <form action="/users/register" method="post"  class="form form__registration">
+
+  <br>
+        <span class="form__registration--label">
+          <label for="username"><span class="form__registration--before"><i class="fa fa-user-circle" aria-hidden="true"></i></span><span class="form__registration--label--content">Username </span></label><br/>
+        <input type="text" name="username" id="username" value="" class=" form__registration--input">
+        </span>
+
+        <br>
+        <span class="form__registration--label">
+              <label for="password">
+                <span class="form__registration--before"><i class="fa fa-user-secret" aria-hidden="true"></i></span>
+        <span class="form__registration--label--content">Password </span></label><br/>
+        <input type="password" name="password" id="password" value="" class=" form__registration--input">
+        </span>
+
+
+        <br><br>
+        <input type="submit" value="Login" class="button registration__submit">
+      </form>
+
+    </div>
+<% include ./partials/footer %>
+</body>
+
+</html>
