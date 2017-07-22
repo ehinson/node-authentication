@@ -129,8 +129,7 @@ span.gray,
   color: #d2d2d2;
 }
 
-.form__registration--input,
-input {
+.form__registration--input {
   position: relative;
   display: block;
   float: right;
@@ -198,10 +197,23 @@ select:-webkit-autofill {
   float: none;
   width: 67%;
   margin: auto;
+  -webkit-appearance: none;
+  background: transparent;
+  display: block;
 }
 
 .registration__title,
-.registration__text {
+.registration__text,
+.form__registration--file--content {
   text-align: center;
   color: #6a7989;
+}
+.form__registration .form__registration--file--content {
+  padding: 12px 5px;
+  float: left;
+}
+.registration__file--upload {
+  float: right;
+  max-width: 50%;
+  padding: 12px 5px;
 }
