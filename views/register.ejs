@@ -8,9 +8,9 @@
 <body>
   <% include ./partials/navbar %>
     <div class="container">
-      <h2><%= title %></h2>
-      <p>Please register using the form below</p>
-      <form action="/action_page.php" method="post" enctype="multipart/form-data" class="form form__registration">
+      <h2 class="registration__title"><%= title %></h2>
+      <p class="registration__text">Please register using the form below</p>
+      <form action="/users/register" method="post" enctype="multipart/form-data" class="form form__registration">
         <span class="form__registration--label">
           <label for="username"><span class="form__registration--before"><i class="fa fa-user-circle" aria-hidden="true"></i></span><span class="form__registration--label--content">Username </span></label><br/>
         <input type="text" name="username" id="username" value="" class=" form__registration--input">
@@ -23,8 +23,9 @@
         <span class="form__registration--label--content">Password </span></label><br/>
         <input type="text" name="password" id="password" value="" class=" form__registration--input">
         </span>
+        <input type="file" name="icon--upload" value="">
         <br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="button registration__submit">
       </form>
 
     </div>

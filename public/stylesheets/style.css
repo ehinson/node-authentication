@@ -18,6 +18,10 @@ span.gray,
 .fa {
   color: #008c9e;
 }
+.button {
+  padding: 12px 8px 10px;
+  color: red;
+}
 
 .container {
   max-width: 1200px;
@@ -125,7 +129,8 @@ span.gray,
   color: #d2d2d2;
 }
 
-.form__registration--input {
+.form__registration--input,
+input {
   position: relative;
   display: block;
   float: right;
@@ -184,4 +189,19 @@ input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
   background-color: none !important;
+}
+
+.registration__submit {
+  padding: 12px 5px;
+  border: 2px solid #008c9e;
+  color: #008c9e;
+  float: none;
+  width: 67%;
+  margin: auto;
+}
+
+.registration__title,
+.registration__text {
+  text-align: center;
+  color: #6a7989;
 }
