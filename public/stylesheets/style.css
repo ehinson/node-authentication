@@ -39,6 +39,9 @@ span.gray,
   width: 100%;
   overflow: hidden;
   min-height: 80px;
+  z-index: 20;
+  position: relative;
+  background: white;
 }
 
 .navigation__brand {
@@ -234,6 +237,7 @@ select:-webkit-autofill {
 }
 
 .header {
+  margin-top: -80px;
   position: fixed;
   z-index: 10;
   overflow: hidden;
@@ -283,13 +287,54 @@ select:-webkit-autofill {
   width: 100%;
   font-size: 1.15em;
 }
+/* Header content */
+.header .success {
+  position: absolute;
+  top: 0;
+  padding: 1.8em;
+  width: 100%;
+  font-size: 1.15em;
+  color: white;
+  list-style-type: none;
+  text-align: center;
+  transition: all 0.3s;
+  -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s; /* Firefox < 16 */
+  -ms-animation: fadein 1s; /* Internet Explorer */
+  -o-animation: fadein 1s; /* Opera < 12.1 */
+  animation: fadein 1s;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .header__title {
   margin: 0 0 20px;
   font-weight: 900;
   font-size: 4em;
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Josefin Slab", Georgia, serif;
   line-height: 1;
+  -webkit-animation: fadeup 1s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadeup 1s; /* Firefox < 16 */
+  -ms-animation: fadeup 1s; /* Internet Explorer */
+  -o-animation: fadeup 1s; /* Opera < 12.1 */
+  animation: fadeup 1s;
+}
+
+@keyframes fadeup {
+  from {
+    opacity: 0;
+    transform: translate(0px, 40px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
 }
 
 .header__subtitle {
@@ -316,10 +361,55 @@ select:-webkit-autofill {
   outline: none;
   border: none;
   background: none;
+  color: white;
+}
+
+.trigger .fa-bars {
+  color: white;
 }
 
 /* Hide the text */
 .trigger span {
   position: absolute;
   top: 100%;
+}
+
+item {
+  position: relative;
+  overflow: hidden;
+  height: 22vw;
+  flex: 1 0 25%;
+  outline: none;
+  border: 5px solid #2a2e39;
+  border-width: 0 5px 10px;
+  background: #2a2e39;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1440px) {
+  .item {
+    height: 30vw;
+    -webkit-flex: 1 0 50%;
+    flex: 1 0 50%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .item {
+    height: 45vw;
+    -webkit-flex: 1 0 50%;
+    flex: 1 0 50%;
+  }
+  .item,
+  .intro__content {
+    font-size: 0.85em;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .item {
+    height: 90vw;
+    -webkit-flex: 1 0 100%;
+    flex: 1 0 100%;
+  }
 }

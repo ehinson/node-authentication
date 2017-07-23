@@ -25,11 +25,11 @@ router.post('/register', upload.single('image--upload'), function(req, res, next
   var password = req.body.password;
   var password2 = req.body.password2;
   if (req.file) {
-    console.log('Uploading FIle');
+    console.log('Uploading File', req.file);
     var avatar = req.file.filename;
   } else {
     console.log('No file uploaded');
-    var avatar = 'default-avatar.jpg';
+    var avatar = 'default-avatar.png';
   }
 
   req.checkBody('name', 'Name field is required').notEmpty();
