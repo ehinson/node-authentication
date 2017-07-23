@@ -30,7 +30,6 @@ span.gray,
   padding: 8px;
   margin: 0 auto;
   background-color: #f6f6f6;
-  height: 100%;
 }
 
 /* Navigation */
@@ -213,6 +212,9 @@ select:-webkit-autofill {
   float: right;
   max-width: 50%;
   padding: 12px 5px;
+}
+.form__registration .form__image--upload--label {
+  width: 40%;
 }
 .errors {
   color: red;
