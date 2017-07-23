@@ -1,9 +1,14 @@
 <nav class="navigation">
   <div class="navigation__brand"><h1><a href="/">node<span class="gray">a</span>uth</a></h1></div>
   <ul class="navigation__links">
-    <li><a href="/" class="<%= title ==='Home' ? 'active' : '' %>">Home</a></li>
+
+    <% if (!user) {%>
     <li><a href="/users/register" class="<%= title ==='Register' ? 'active' :'' %>">Register</a></li>
+
     <li><a href="/users/login" class="<%= title ==='Login' ? 'active' : ''%>">Login</a></li>
+      <% }else{ %>
+        <li><a href="/" class="<%= title ==='Home' ? 'active' : '' %>">Home</a></li>
     <li><a href="/users/logout">Logout</a></li>
+    <%} %>
 </ul>
 </nav>

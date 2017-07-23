@@ -9,6 +9,7 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const multer = require('multer');
+const bcrypt = require('bcryptjs');
 
 // Handle File uploads
 var upload = multer({ dest: 'uploads/' });
@@ -48,6 +49,11 @@ app.use(passport.session());
 app.use(require('connect-flash')());
 app.use(function(req, res, next) {
   res.locals.messages = require('express-messages')(req, res);
+  next();
+});
+
+app.get('*', function(req, res, next) {
+  res.locals.user = req.user || null;
   next();
 });
 
