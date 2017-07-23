@@ -1,13 +1,19 @@
 <section class="items-wrap">
-  
+
   <% if (  data !== undefined ){ %>
   <% for (const datum of data){ %>
     <a href="#" class="item">
   		<img class="item__image" src="<%= datum.image %>" alt="item01"/>
-  		<h2 class="item__title">Magnificence</h2>
+
   	</a>
   <% } %>
   <% } %>
+  <% if (  words  ){ %>
+    <% words.then((res) => res.map((word) => { %>
+      <h2 class="item__title"><%= word %></h2>
+
+  <%  }))%>
+    <% } %>
 
 
 </section><!-- /items-wrap -->

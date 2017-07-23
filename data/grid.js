@@ -52,4 +52,4 @@ module.exports.data = [
   { id: 4, title: '', definition: '', image: 'https://unsplash.it/900/600/?random' }
 ];
 
-module.exports.words = getWords;
+module.exports.getWords = getWords;
