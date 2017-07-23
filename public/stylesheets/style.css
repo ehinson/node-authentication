@@ -30,6 +30,7 @@ span.gray,
   padding: 8px;
   margin: 0 auto;
   background-color: #f6f6f6;
+  height: 100%;
 }
 
 /* Navigation */
@@ -221,4 +222,104 @@ select:-webkit-autofill {
   text-align: left;
   max-width: 400px;
   margin: auto;
+}
+
+/* Home Page */
+
+.home-container {
+  background: url('/images/background.jpg') center center;
+  height: 100%;
+  background-size: cover;
+  color: white;
+}
+
+.header {
+  position: fixed;
+  z-index: 10;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: url(/images/background.jpg) center center;
+  background-size: cover;
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  color: #f6f6f6;
+}
+
+.container--open .header {
+  -webkit-transform: translate3d(0, -100%, 0) translate3d(0, 250px, 0);
+  transform: translate3d(0, -100%, 0) translate3d(0, 250px, 0);
+}
+
+.header__image {
+  position: absolute;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 120%;
+  width: auto;
+  height: auto;
+  opacity: 0.8;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.6s, opacity 0.6s;
+  transition: transform 0.6s, opacity 0.6s;
+  -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+  transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.container--open .header__image {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 20%, 0);
+  transform: translate3d(0, 20%, 0);
+}
+
+/* Header content */
+.header__content {
+  position: absolute;
+  bottom: 0;
+  padding: 1.8em;
+  width: 100%;
+  font-size: 1.15em;
+}
+
+.header__title {
+  margin: 0 0 20px;
+  font-weight: 900;
+  font-size: 4em;
+  font-family: "Playfair Display", Georgia, serif;
+  line-height: 1;
+}
+
+.header__subtitle {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.header__description {
+  margin: 0 auto 0 1em;
+  line-height: 1.2;
+}
+
+.trigger {
+  position: relative;
+  -webkit-flex: none;
+  flex: none;
+  overflow: hidden;
+  margin: 0 0 0 20px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+/* Hide the text */
+.trigger span {
+  position: absolute;
+  top: 100%;
 }
