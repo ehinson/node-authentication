@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-mongoose.connect(MONGODB_URI, {
+var uri = process.env.MONGOLAB_URI;
+
+mongoose.connect(uri, {
   useMongoClient: true
   /* other options */
 });
