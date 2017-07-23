@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 var mongoURI = 'mongodb://localhost/node-auth';
 
-mongoose.connect(process.env.MONGOLAB_URI || mongoURI, {
+mongoose.connect(process.env.MONGODB_URI || mongoURI, {
   useMongoClient: true
   /* other options */
 });
