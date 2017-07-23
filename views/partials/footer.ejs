@@ -1,5 +1,7 @@
 <script>
   (function() {
+    var container = document.querySelector( ".header__container" );
+		var trigger = container.querySelector( "button.trigger" );
     document.querySelectorAll(".form__registration--input").forEach(elem => {
 
       elem.addEventListener( 'focus', onInputFocus );
@@ -16,5 +18,25 @@
             parentNode.classList.remove("input--filled")
 					}
 				}
+        function noscroll() {
+					window.scrollTo( 0, 0 );
+				}
+        function toggleContent() {
+    					if( container.classList.contains("container--open") ) {
+                container.classList.remove("container--open")
+    						window.addEventListener( 'scroll', noscroll );
+    					}
+    					else {
+    						container.classList.add("container--open")
+    						trigger.classList.add("trigger--active")
+    						window.removeEventListener( 'scroll', noscroll );
+    					}
+    				}
+
+            // reset scrolling position
+				document.body.scrollTop = document.documentElement.scrollTop = 0;
+				// disable scrolling
+				window.addEventListener( 'scroll', noscroll );
+				trigger.addEventListener( 'click', toggleContent );
   })();
 </script>
