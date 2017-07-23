@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-mongoose.connect('mongodb://localhost/node-auth', {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
   /* other options */
 });
